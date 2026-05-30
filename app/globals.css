@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,400;0,500;0,600;0,700&family=Zalando+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap");
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Single source stacks (linked above). Same families as SKILLS next/font/Google — Next’s built-in matcher does not expose Zalando yet. */
+  --font-stack-sans: "Zalando Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-stack-expanded: "Zalando Sans Expanded", "Zalando Sans", ui-sans-serif,
+    system-ui, sans-serif;
+
+  /* Omoway — omoway-docs/design-system/colors.md */
+  --color-primary-light: #f3f5ee;
+  --color-primary-default: #bad969;
+  --color-primary-dark: #537400;
+  --color-black: #101010;
+  --color-white: #ffffff;
+  --color-bg-dark: #101010;
+  --color-bg-light: #f3f5ee;
+  --color-bg-white: #ffffff;
+  --color-text-primary: #ffffff;
+  /* Primary on dark at 70% — supporting body emphasis (see typography --text-body + medium) */
+  --color-text-primary-soft: rgba(255, 255, 255, 0.7);
+  --color-text-secondary: rgba(255, 255, 255, 0.5);
+  --color-text-muted: rgba(255, 255, 255, 0.25);
+  --color-text-disabled: rgba(255, 255, 255, 0.15);
+  --color-text-primary-light: #101010;
+  --color-text-secondary-light: rgba(16, 16, 16, 0.5);
+  --color-text-muted-light: rgba(16, 16, 16, 0.25);
+  --color-text-disabled-light: rgba(16, 16, 16, 0.15);
+  --color-accent: #bad969;
+  --color-accent-hover: #537400;
+  --color-accent-subtle: #f3f5ee;
+  --color-border-dark: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(16, 16, 16, 0.1);
+  --color-border-accent: #bad969;
+
+  /* Omoway — typography omoway-docs/design-system/typography.md */
+  --font-expanded: var(--font-stack-expanded);
+
+  /* Heading sizes — h1/h2: mobile 48px / 40px → max 84px / 72px (Rules + CSS Tokens) */
+  --text-h1: clamp(3rem, 4.2vw + 1.75rem, 5.25rem);
+  --text-h2: clamp(2.5rem, 3.8vw + 1.25rem, 4.5rem);
+  --text-h3: 56px;
+  --text-h4: 48px;
+
+  /* Body — Zalando Sans Expanded */
+  --text-exp-body-xxl: 56px;
+  --font-weight-exp-body-xxl: 500; /* Medium — xxl only */
+  --tracking-exp-body-xxl: -0.04em; /* letter-spacing -4% */
+  --text-exp-body-xl: 44px;
+  --text-exp-body-lg: 32px;
+  --text-exp-body-md: 24px;
+  --text-exp-body-sm: 20px;
+  --text-exp-body: 18px;
+  --text-exp-body-xs: 16px;
+  --text-exp-label: 14px;
+
+  /* Body — Zalando Sans */
+  --text-body-xxl: 56px;
+  --font-weight-body-xxl: 500; /* Medium — xxl only */
+  --tracking-body-xxl: -0.04em; /* letter-spacing -4% */
+  --text-body-xl: 44px;
+  --text-body-lg: 32px;
+  --text-body-md: 24px;
+  --text-body-sm: 20px;
+  --text-body: 18px;
+  --text-body-xs: 16px;
+  --text-label: 14px;
+
+  --leading-heading: 1.2;
+  --leading-body: 1.2;
+  --tracking-heading: -0.04em;
+  --tracking-body: -0.02em;
+  --tracking-h3: -0.04em; /* letter-spacing -4% — h3 scale (--text-h3) */
+  --font-weight-heading: 600; /* Semibold — all h1–h4 (typography.md) */
+
+  /* Omoway — spacing scale omoway-docs/design-system/spacing.md */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* omoway-docs/design-system/spacing.md — grid margin desktop */
+  --page-margin-inline-desktop: 80px;
+
+  --section-hero-pad-inline-mobile: var(--space-6);
+  --section-hero-pad-inline-desktop: var(--page-margin-inline-desktop);
+  /* Hero nav bar row — explicit insets (hero section padding is otherwise 0 in spacing.md; tablet = grid margin 24px) */
+  --section-hero-nav-pad-inline-mobile: var(--space-4);
+  --section-hero-nav-pad-inline-tablet: var(--space-6);
+  /* Nav row full-bleed on lg; hero body/info bar keep --section-hero-pad-inline-desktop */
+  --section-hero-nav-pad-inline-desktop: 0;
+  --grid-gutter-desktop: var(--space-5);
+
+  /* Hero main nav links — hit container */
+  --nav-link-padding-x: var(--space-4); /* 16px */
+  --nav-link-padding-y: 0.875rem; /* 14px */
+}
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-stack-sans);
+  --font-body: var(--font-stack-sans);
+  --font-heading: var(--font-stack-expanded);
+  --font-expanded: var(--font-stack-expanded);
+  --font-mono: ui-monospace, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+}
+
+:root {
+  --radius: 0px;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply outline-ring/50;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: var(--font-weight-heading);
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern" 1;
+    /*
+      Match html: some engines attribute the vertical scrollbar to `body`; without gutter here,
+      desktop layouts can still shift when scrollability toggles (e.g. product mode tabs).
+    */
+    scrollbar-gutter: stable;
+  }
+  html {
+    /* Wheel smoothing via Lenis (SmoothScroll); native scroll-behavior conflicts */
+    scroll-behavior: auto;
+    /* Reserve scrollbar gutter so `w-full` layout does not shift when overflow appears (e.g. tab copy height). */
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Leaflet — DivIcon markers (no default tile box) */
+.leaflet-container .leaflet-div-icon.dealer-locator-pin {
+  background: transparent;
+  border: none;
+}
+
+/* GSAP-driven scroll scrub — see StickyScrollRevealParagraphSection */
+.revealing-paragraph-scroll {
+  --reveal: 0%;
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-black) 0%,
+    var(--color-black) var(--reveal),
+    var(--color-text-secondary-light) var(--reveal),
+    var(--color-text-secondary-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
