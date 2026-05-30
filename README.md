@@ -2,7 +2,7 @@
 
 A concept redesign of the [Omoway](https://omoway.com) marketing website for the **OMO X** — the world's first mass-produced self-balancing electric motorcycle. Built as a premium, animation-heavy single-page experience targeting tech-enthusiast early adopters in Southeast Asia.
 
-> **Live route:** `/` (homepage only — see [Roadmap](#roadmap) for planned routes)
+> **Live route:** `/` (homepage only)
 
 ---
 
@@ -96,13 +96,6 @@ omoway-web/
 | `--color-black` | `#101010` | Hero + dark section backgrounds |
 | `--color-white` | `#FFFFFF` | Elevated cards only |
 
-**Rules:**
-- `#BAD969` is the only brand accent — use intentionally, never decoratively
-- Never use `#BAD969` as text on white (contrast too low)
-- Section backgrounds alternate between `#101010` (dark) and `#F3F5EE` (light off-white)
-- Black is always `#101010` — never pure `#000000`
-- Borders are hairline (`0.5px`) — never thicker except bottom-border on inputs
-
 ### Typography
 
 Two typefaces, one visual voice:
@@ -136,43 +129,6 @@ Two typefaces, one visual voice:
 - **Page margin:** `--page-margin-inline-desktop: 80px`
 - **Spacing scale:** `--space-1` through `--space-32` in `0.25rem` increments
 - **Border radius:** `0px` everywhere — sharp edges, no curves
-
-### Design Principles
-
-1. **Product is always the hero** — no decorative clutter
-2. **Sharp corners everywhere** — border-radius is always 0
-3. **Typography drives hierarchy** — not color or decoration
-4. **Dark-first** — hero and key sections on `#101010`; light sections as breathing room
-5. **Accent used intentionally** — max 2 accent touches per section
-
----
-
-## Key Patterns
-
-- **Content as typed constants** — all section data defined in `page.tsx` and passed as spread props
-- **Prop types in `lib/`** — one `*-types.ts` file per section (e.g. `HeroSectionProps`)
-- **GSAP in custom hooks** — animation logic encapsulated (e.g. `useGsapStaggeredLineReveal`)
-- **Damped spring easing** — `createDampedSpringEase()` in `lib/damped-spring-ease.ts`
-- **`"use client"` only where needed** — all interactive/animated components opt in explicitly
-- **SSR-safe map** — `DealerLocatorMap` lazy-loaded via `next/dynamic` with `ssr: false`
-- **Accessibility** — ARIA roles/labels, `sr-only` text, `prefers-reduced-motion` support
-
----
-
-## Roadmap
-
-Currently only `/` (homepage) is implemented. Planned routes:
-
-- `/pre-order`
-- `/omo-x/specs`
-- `/test-ride`
-- `/models`
-- `/technology`
-- `/experience`
-- `/news`
-- `/about`
-- `/contact`
-- `/join-us`
 
 ---
 
